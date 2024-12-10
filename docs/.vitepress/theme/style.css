@@ -1,0 +1,153 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Karma:wght@300;400;500;600;700&display=swap');
+ 
+html {
+  font-family: "Bitter", serif;
+  color: black;
+  background-color: #EEF5FB;
+  /* background-color: #FDFBF9; */
+  background-image: url('/gridOverlay.png');
+  background-blend-mode: overlay;
+}
+
+html:after, html:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 20px;
+  background: #fff;
+  z-index: 21000;
+}
+
+html:after {
+  right: 0;
+  bottom: 0;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 13px;
+  background: #fff;
+  z-index: 21000;
+  top: 0;
+}
+
+body:after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #fff;
+  z-index: 21000;
+  bottom: 0;
+}
+
+body{
+  margin: 10px 20px 10px 20px;
+}
+
+
+a, span{
+  color: #214192;
+  /* color: #47280B; */
+  text-decoration: none;
+  font-weight: 600;
+  /* margin-right: 50px; */
+}
+
+.header{
+  position: fixed;
+  width: 98%;
+  background-color: #EEF5FB;
+  /* background-color: #FDFBF9; */
+  z-index: 2;
+}
+
+main{
+  padding: 0 15% 0 15%;
+}
+
+.nav{
+  font-family: Arial, Helvetica;
+  height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 25px 0px 25px;
+}
+
+
+.Kenny{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.Kenny img:first-child{
+  height: 37px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.pipe{
+  height: 32px;
+  margin: 0 15px 0 10px;
+}
+
+.Kenny a{
+  color: #214192;
+  /* color: #47280B; */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.navlinks{
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  align-items: center;
+  font-size: 18px;
+}
+
+.navlinks a{
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.navlinks span{
+  width: 30px;
+  height: 30px;
+  border: 1px solid #214192;
+  margin: 0 15px 0 15px;
+}
+
+.navlinks span:nth-child(2){
+  background-color: #FDFBF9;
+}
+
+.navlinks span:nth-child(3){
+  background-color: #FFF7F7;
+}
+
+.social-icons{
+  width: 25px;
+  height: 25px;
+  margin: 0 15px 0 15px;
+}
+
+.red-rect{
+  position: fixed;
+  top: 0;
+  left: 150px;
+  height: 100%;
+  width: 2px;
+  z-index: 1;
+}
