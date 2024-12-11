@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import techstack from './util/techstack';
+import techstack from './data/techstack';
 import { ref, onMounted } from 'vue';
 
 const aboutMeRef = ref(null);
@@ -9,39 +9,39 @@ const isAboutMeHead = ref(false);
 const isInfo = ref(false);
 const isProfile = ref(false);
 const isVerticalScroll = ref(false);
+const isShadowLine = ref(false);
 
 onMounted(() => {
   const observer = new IntersectionObserver(
     ([entry], observer) => {
-        // When the element enters the viewport, make it visible
-
-        // make a condition that the view of the client should only at that certain area which is when his scrolling, then after that it will now view the others below
 
         if (entry.isIntersecting) {
             isVisible.value = true;
+
             console.log('Visible');
             console.log(entry.isIntersecting);
+
             setTimeout(() => {
                 isAboutMeHead.value = true;
             }, 500);
 
             setTimeout(() => {
                 isInfo.value = true;
+                isProfile.value = true;
             }, 700);
 
             setTimeout(() => {
-                isProfile.value = true;
-            }, 1500);
-
-            setTimeout(() => {
                 isVerticalScroll.value = true;
-            }, 1400);
+            }, 1200);
 
+            setTimeout(() =>{
+                isShadowLine.value = true;
+            },3000)
 
         }
     },
     {
-        threshold: 0.3, //value on how much of the element should be visible before the callback is called
+        threshold: 0.15, //value on how much of the element should be visible before the callback is called
     }
     );
     // Observe the element
@@ -93,14 +93,14 @@ onMounted(() => {
         </div>
         <div class="Profile-Image">
             <img src="/Profile.png" alt="Profile Picture" :class="['Profile', { active: isProfile }]"/>
-            <div :class="['shadow-line', { active: isProfile}]"></div>
-            <div :class="['shadow-line', { active: isProfile}]" style="margin-left: 30px;"></div>
-            <div :class="['shadow-line', { active: isProfile}]" style="margin-left: 60px;"></div>
-            <div :class="['shadow-line', { active: isProfile}]" style="margin-left: 90px;"></div>
-            <div :class="['shadow-line', { active: isProfile}]" style="margin-left: 120px;"></div>
+            <div :class="['shadow-line', { active: isProfile, done: isShadowLine}]"></div>
+            <div :class="['shadow-line', { active: isProfile, done: isShadowLine}]" style="margin-left: 30px;"></div>
+            <div :class="['shadow-line', { active: isProfile, done: isShadowLine}]" style="margin-left: 60px;"></div>
+            <div :class="['shadow-line', { active: isProfile, done: isShadowLine}]" style="margin-left: 90px;"></div>
+            <div :class="['shadow-line', { active: isProfile, done: isShadowLine}]" style="margin-left: 120px;"></div>
         </div>
     </div>
-    <div :class="['vertical-container', { active: isVerticalScroll }]">
+    <div :class="['vertical-container', { active: isVerticalScroll }]" style="margin-top: 40px;">
         <div class="vertical-holder" style="visibility: hidden;">
             <span style="margin-top: 70px;">SCROLL</span>
             <div class="vertical"></div>
@@ -108,6 +108,9 @@ onMounted(() => {
         <div class="vertical-holder">
             <span>SCROLL</span>
             <div class="vertical1"></div>
+        </div>
+        <div class="stripes-bg">
+            <div></div>
         </div>
     </div>
 </template>
@@ -174,33 +177,42 @@ onMounted(() => {
         animation: fadeInUp 0.5s backwards 0.5s;
     }
 
+    .shadow-line{
+        opacity: 0;
+    }
   
     .shadow-line.active{
         width: 53%;
         height: 4px;
-        background: #becae9;
+        background: #acdae2;
         margin-top: 10px;
-        animation: fadeInUp 2.0s forwards 1.5s infinite;
+        opacity: 1;
+        animation: fadeInUp 0.5s backwards 0.5s;
     }
 
+    .shadow-line.done{
+        animation: fadeInUp 1.5s backwards infinite;
+    }
+
+    
     .shadow-line.active:nth-child(2) {
-        animation-delay: 2.75s;
+        animation-delay: 0.75s;
     }
 
     .shadow-line.active:nth-child(3) {
-        animation-delay: 2.8s;
+        animation-delay: 0.8s;
     }
 
     .shadow-line.active:nth-child(4) {
-        animation-delay: 2.85s;
+        animation-delay: 0.85s;
     }
 
     .shadow-line.active:nth-child(5) {
-        animation-delay: 2.9s;
+        animation-delay: 0.9s;
     }
 
     .shadow-line.active:nth-child(6) {
-        animation-delay: 2.95s;
+        animation-delay: 0.95s;
     }
 
     .Profile{
@@ -215,7 +227,7 @@ onMounted(() => {
     @keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(20px);
         }
         to {
             opacity: 1;
@@ -268,48 +280,6 @@ onMounted(() => {
         max-width: 100%;
     }
 
-    .vertical-container {
-        opacity: 0;
-    }
-
-    .vertical-container.active {
-        opacity: 1;
-        display: flex;
-        flex-direction: row;
-        width: 35%;
-        margin-top: 40px;
-        gap: 75px;
-        animation: popUp 0.5s ease-out backwards
-    }
-
-    .vertical-holder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .vertical-holder span {
-        font-size: 10px;
-        font-weight: 500;
-        margin-bottom: 10px;
-        letter-spacing: 2px;
-        color: #96AADE;
-    }
-
-
-    .vertical-holder:hover{
-        transform: scale(1.05);
-        animation-duration: 200ms;
-    }
-
-    .vertical, .vertical1 {
-        width: 3px;
-        height: 40vh;
-        background: linear-gradient(to bottom, #B7A2CE 0%, #A0C2FF 100%);
-    }
-
     .box, .box-shadow {
         width: 54px;
         height: 57px;
@@ -335,6 +305,7 @@ onMounted(() => {
         width: 100%;
         overflow: hidden;
         position: relative;
+        
     }
 
     .tech-wrapper {
@@ -342,6 +313,7 @@ onMounted(() => {
         flex-direction: row;
         gap: 40px;
         animation: loopSlider 35s linear infinite;
+        
     }
 
     .holder {
@@ -351,17 +323,6 @@ onMounted(() => {
     .icon {
         width: 37px;
         height: 37px;
-    }
-
-    @keyframes popUp {
-        from {
-            opacity: 0;
-            transform: translateY(100px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 
     @keyframes loopSlider {

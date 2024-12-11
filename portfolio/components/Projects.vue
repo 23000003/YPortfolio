@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import techstack from './util/techstack';
 import { ref, onMounted } from 'vue';
+import projects from './data/projects';
 
-// Reference to the "About Me" section
 const projectRef = ref(null);
 const isVisible = ref(false);
 
@@ -19,7 +18,7 @@ onMounted(() => {
             console.log('Visible 3');
             setTimeout(() => {
                 isProjectHead.value = true;
-            }, 500);
+            }, 100);
 
             setTimeout(() => {
                 isVerticalScroll.value = true;
@@ -27,11 +26,11 @@ onMounted(() => {
 
             setTimeout(() => {
                 isProjects.value = true;
-            }, 900);
+            }, 500);
         }
     },
     {
-        threshold: 0.3, //value on how much of the element should be visible before the callback is called
+        threshold: 0.05, //value on how much of the element should be visible before the callback is called
     }
     );
     // Observe the element
@@ -50,31 +49,53 @@ onMounted(() => {
             <div :class="['label', { active: isProjectHead }]">
                 <span :class ="['about-label', { active: isProjectHead}]">Projects. 
                     <p>#</p>
-                    <div>+</div>
+                    <div class="proj-color-type">
+                        <div class="experience-type">
+                            <span></span>
+                            <span>Experience</span>
+                        </div>
+                        <div class="school-type">
+                            <span></span>
+                            <span>School Project</span>
+                        </div>
+                        <div class="side-type">
+                            <span></span>
+                            <span>Side Project</span>
+                        </div>
+                    </div>
                 </span>
             </div>
             <div :class="['horizontal', { active: isProjectHead }]"/>
 
-            <div :class="['animation-proj', {active: isProjects}]">
+            <div :class="['animation-proj', {active: isProjects}]"
+                v-for="(proj, index) in projects" :key="index"
+            >    
                 <div class="Projects-Holder">
                     <div class="proj-image">
-                        <img src="/BookTrackMain.png" alt="project-image" class="img-main">
-                        <img src="/BookTrackSub.png" alt="project-image" class="img-sub">
+                        <img :src="proj['image-main']" :alt="proj.name" class="img-main"/>
                     </div>
                     <div class="proj-info">
-                        <span class="proj-type"></span>
+                        <span class="proj-type" :style="{
+                            backgroundColor: proj.type === 1 ? '#D6B3FC' : 
+                                            proj.type === 2 ? '#B4B1FF' : 
+                                            proj.type === 3 ? '#443DAB' : 'transparent'
+                        }">
+                        </span>
                         <span class="proj-name">
-                            BookTrack
+                            {{ proj.name }}
                         </span>
                         <span class="horiz"></span>
                         <span class="proj-desc">
-                            A web application that allows users to track their reading progress and discover new books.
+                            {{ proj.description }}
                         </span>
                         <div class="proj-link">
                             <div class="pl-sub">
-                                <a href="">Project Link</a>
+                                <a :href="proj.link" class="button">
+                                    <span class="button-bg"></span>
+                                    <span class="button-label">Project Link</span>
+                                </a>
                                 <span class="built-with">Built with:
-                                    <p>ReactJS, NodeJS, Supabase</p>
+                                    <p>{{ proj['built-with'] }}</p>
                                 </span>
                             </div>
                         </div>
@@ -82,14 +103,17 @@ onMounted(() => {
                 </div>
                 <div :class="['horizontal', { active: true }]"/>
             </div>
+
         </div>
     </div>
-    <div :class="['vertical-container', { active: isVerticalScroll }]">
+    <div :class="['vertical-container', { active: isVerticalScroll }]" style="margin-top: 40px;">
         <div class="vertical-holder">
             <span style="margin-top: 70px;">SCROLL</span>
             <div class="vertical"></div>
         </div>
-        
+        <div class="stripes-bg">
+            <div></div>
+        </div>
     </div>
 </template>
 
@@ -113,6 +137,7 @@ onMounted(() => {
     .about-label{
         opacity: 0;
         display: flex;
+        align-items: center;
     }
 
     .horizontal{
@@ -123,7 +148,7 @@ onMounted(() => {
     }
 
     .horizontal.active {
-        animation: slideHorizontal 0.5s ease-out forwards 0.3s;
+        animation: slideHorizontal 0.2s ease-out forwards 0.3s;
     }
 
     .horiz{
@@ -144,6 +169,13 @@ onMounted(() => {
         animation: fadeInUp 0.5s backwards 0.7s;
     }
 
+    .shadow-line{
+        width: 20%;
+        height: 4px;
+        background: #becae9;
+        position: absolute;
+    }
+
     .Projects-Holder{
         display: flex;
         flex-direction: row;
@@ -154,7 +186,6 @@ onMounted(() => {
     .proj-image{
         width: 50%;
         display: flex;
-        justify-content: center;
         align-items: end;
     }
 
@@ -177,6 +208,17 @@ onMounted(() => {
         font-weight: bold;
     }
 
+    .proj-type{
+        width: 12px;
+        height: 12px;
+        border-radius: 45px;
+        background-color: #214192;
+        border: 1px solid #001465;
+        position: absolute;
+        margin-top: 15px;
+        margin-left: -24px;
+    }
+
     .proj-link {
         display: flex;
         flex-direction: row;
@@ -184,15 +226,51 @@ onMounted(() => {
         align-items: end;
     }
 
-    .proj-link a{
+
+    .button {
+        display: inline-block;
+        position: relative;
         padding: 10px 30px;
         border: 2px solid #214192;
+        cursor: pointer;
     }
 
-    .proj-link span{
+    .button-bg {
+        position: absolute;
+        top: 10px;
+        left: -10px;
+        right: 10px;
+        bottom: -10px;
+        background-image: url('/stripes.svg');
+        background-size: 11px;
+        opacity: 0.6;
+        z-index: -1;
+        transition: all 0.6s ease;
+    }
+    
+    .button:hover .button-bg {
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    .button .button-bg {
+        transition: all 0.6s ease;
+    }
+
+    .built-with{
         font-size: 12px;
         font-weight: 400;
         margin-left: 20px;
+    }
+
+    .button:hover{
+        border: 2px solid #bc8fec;
+    }
+
+    .button:hover .button-label{
+        color: #bc8fec;
     }
 
     .proj-name p{
@@ -238,10 +316,52 @@ onMounted(() => {
         opacity: 1;
     }
 
+    .proj-color-type{
+        width: 381px;
+        height: 43px;
+        border: 1px solid #443DAB;
+        border-radius: 46px;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .school-type, .side-type, .experience-type{
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .school-type span:first-child, 
+    .side-type span:first-child, 
+    .experience-type span:first-child
+    {
+        width: 12px;
+        height: 12px;
+        border-radius: 45px;
+        background-color: #214192;
+        border: 1px solid #001465;
+    }
+
+    .experience-type span:first-child{
+        background-color: #443DAB;
+    }
+
+    .school-type span:first-child{
+        background-color: #D6B3FC;
+    }
+
+    .side-type span:first-child{
+        background-color: #B4B1FF;
+    }
+
     @keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(20px);
         }
         to {
             opacity: 1;
@@ -284,59 +404,6 @@ onMounted(() => {
         }
         100% {
             width: 100%;
-        }
-    }
-
-    .vertical-container {
-        opacity: 0;
-    }
-
-    .vertical-container.active {
-        opacity: 1;
-        display: flex;
-        flex-direction: row;
-        width: 35%;
-        margin-top: 40px;
-        gap: 75px;
-        animation: popUp 0.5s ease-out backwards
-    }
-
-    .vertical-holder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .vertical-holder span {
-        font-size: 10px;
-        font-weight: 500;
-        margin-bottom: 10px;
-        letter-spacing: 2px;
-        color: #96AADE;
-    }
-
-
-    .vertical-holder:hover{
-        transform: scale(1.05);
-        animation-duration: 200ms;
-    }
-
-    .vertical, .vertical1 {
-        width: 3px;
-        height: 40vh;
-        background: linear-gradient(to bottom, #B7A2CE 0%, #A0C2FF 100%);
-    }
-
-    @keyframes popUp {
-        from {
-            opacity: 0;
-            transform: translateY(100px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
         }
     }
 

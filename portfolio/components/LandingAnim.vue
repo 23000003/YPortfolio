@@ -5,9 +5,9 @@ onMounted(() => {
     document.body.style.overflowY = 'scroll';    
     setTimeout(() => {
         const loadScreen = document.querySelector('.Load-Screen') as HTMLElement;
-        loadScreen.style.transition = 'transform 0.6s ease';
+        loadScreen.style.transition = 'transform 0.5s ease';
         loadScreen.style.transform = 'translateY(100%)';
-    }, 1500);
+    }, 1100);
 
 });
 

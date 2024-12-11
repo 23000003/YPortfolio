@@ -10,7 +10,7 @@ onMounted(() => {
 
     setTimeout(() => {
         isVerticalActive.value = true;
-    }, 1000);
+    }, 900);
 
     setTimeout(() => {
         isLogoActive.value = true;
@@ -33,7 +33,7 @@ onMounted(() => {
             <div class="intro-label">
                 <span class="shadow-text">"Knowledge has no finish line;"</span>
                 <span class="shadow-text">"Knowledge has no <br/>finish line;"</span>
-                <span class="sub-text">My name is Kentward M. Maratas, A passionate full-stack engineer.</span>
+                <span class="sub-text">I'm Kentward M. Maratas, A passionate full-stack developer.</span>
                 <div class="contact-info">
                     <button>Download Resume</button>
                     <img src="/Rect1.png" alt="Pipe" class="pipe">
@@ -43,6 +43,7 @@ onMounted(() => {
             </div>  
         </div>
         <div :class="['logo', { 'active': isLogoActive }]">
+            <div class="logo-bg"></div>
             <div :class="['square', { 'active': isLogoActive1 }]"></div>
             <div :class="['square1', { 'active': isLogoActive1 }]"></div>
             <div :class="['shadow-square', { 'active': isLogoActive1 }]"></div>
@@ -61,11 +62,15 @@ onMounted(() => {
             <span>SCROLL</span>
             <div class="vertical1"></div>
         </div>
+        <div class="stripes-bg">
+            <div></div>
+        </div>
     </div>
 </template>
 
 <style scoped>
 
+    
     .intro {
         display: flex;
         flex-direction: row;
@@ -100,48 +105,6 @@ onMounted(() => {
         animation: fadeInUp 0.5s backwards;
     }
 
-    .vertical-container {
-        display: flex;
-        flex-direction: row;
-        margin-top: -80px;
-        width: 35%;
-        gap: 75px;
-        opacity: 0;
-    }
-
-    .vertical-container.active {
-        opacity: 1;
-        transform: translateY(0);
-        animation: popUp 0.5s ease-out backwards;
-    }
-
-    .vertical-holder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .vertical-holder:hover{
-        transform: scale(1.05);
-        animation-duration: 200ms;
-    }
-
-    .vertical-holder span {
-        font-size: 10px;
-        font-weight: 500;
-        margin-bottom: 10px;
-        letter-spacing: 2px;
-        color: #96AADE;
-    }
-
-    .vertical, .vertical1 {
-        width: 3px;
-        height: 40vh;
-        background: linear-gradient(to bottom, #B7A2CE 0%, #A0C2FF 100%);
-    }
-
     .sub-text {
         font-weight: 500;
         animation: fadeInUp 0.5s backwards 0.5s;
@@ -167,7 +130,7 @@ onMounted(() => {
     }
 
     .contact-info{
-        animation: fadeInUp 0.5s backwards 2s;
+        animation: fadeInUp 0.5s backwards 1.5s;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -184,7 +147,6 @@ onMounted(() => {
         width: 50%;
         z-index: 1;
         flex-direction: column;
-        
     }
 
     .square, .square1 {
@@ -248,7 +210,7 @@ onMounted(() => {
     @keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(15px);
         }
         to {
             opacity: 1;
@@ -286,30 +248,6 @@ onMounted(() => {
         to {
             opacity: 1;
             transform: translateX(0);
-        }
-    }
-
-    @keyframes floatAround {
-        0% {
-            transform: translateY(0) translateX(0);
-        }
-        50% {
-            transform: translateY(-10px) translateX(5px);
-        }
-        100% {
-            transform: translateY(0) translateX(0);
-        }
-    }
-
-    @keyframes floatAround1 {
-        0% {
-            transform: translateY(0) translateX(0);
-        }
-        50% {
-            transform: translateY(10px) translateX(-5px);
-        }
-        100% {
-            transform: translateY(0) translateX(0);
         }
     }
 

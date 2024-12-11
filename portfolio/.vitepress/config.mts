@@ -5,7 +5,7 @@ export default defineConfig({
   title: "Kenny | Portfolio",
   description: "My personal portfolio",
   head: [
-    ['link', { rel: 'icon', href: '/Logo.png' }]
+    ['link', { rel: 'icon', href: '/Logo.png' }],
   ],
   vue: {
     template: {
@@ -13,5 +13,5 @@ export default defineConfig({
         isCustomElement: tag => tag.startsWith('Tres') && tag !== 'TresCanvas',
       },
     }
-  }
+  },
 })
