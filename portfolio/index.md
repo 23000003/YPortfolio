@@ -8,11 +8,18 @@
     import AboutMe from './components/AboutMe.vue';
     import Projects from './components/Projects.vue';
     import Contacts from './components/Contacts.vue';
+    
     // import CurrentColorClassModule from './components/util/CurrentColorClass.ts'
+    // const CurrentColorClass = new CurrentColorClassModule(0);
 
     const showLandingAnim = ref(true);
 
-    // const CurrentColorClass = new CurrentColorClassModule(0);
+    // const theme1 = 1;
+
+    // if (theme1 === 0) {
+    //     import('./components/1stcolortheme.css');
+    // }
+
 
     onMounted(() => {
         setTimeout(() => {

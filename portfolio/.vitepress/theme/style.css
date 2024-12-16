@@ -5,10 +5,11 @@
 html {
   font-family: "Bitter", serif;
   color: black;
-  background-color: #EEF5FB;
-  /* background-color: #FDFBF9; */
-  background-image: url('/gridOverlay.png');
-  background-blend-mode: overlay;
+  /* background-color: #EEF5FB; */
+  background-color: #FDFBF9;
+  background-image: url('/grid.jpg');
+  background-blend-mode: screen;
+  background-size: 100%;
 }
 
 html:after, html:before {
@@ -55,8 +56,8 @@ body{
 
 
 a, span{
-  color: #214192;
-  /* color: #47280B; */
+  /* color: #0F1B61; */
+  color: #47280B;
   text-decoration: none;
   font-weight: 600;
   /* margin-right: 50px; */
@@ -65,9 +66,10 @@ a, span{
 .header{
   position: fixed;
   width: 98%;
-  background-color: #EEF5FB;
-  /* background-color: #FDFBF9; */
+  /* background-color: #EEF5FB; */
+  background-color: #FDFBF9;
   z-index: 2;
+  
 }
 
 main{
@@ -102,7 +104,7 @@ main{
 }
 
 .Kenny a{
-  color: #214192;
+  color: #47280B;
   /* color: #47280B; */
   text-decoration: none;
   font-weight: 600;
@@ -130,7 +132,7 @@ main{
 }
 
 .navlinks span:nth-child(2){
-  background-color: #FDFBF9;
+  background-color: #EEF5FB;
 }
 
 .navlinks span:nth-child(3){
@@ -140,7 +142,7 @@ main{
 .social-icons{
   width: 25px;
   height: 25px;
-  margin: 0 15px 0 15px;
+  margin-right: 15px;
 }
 
 .red-rect{
@@ -182,11 +184,11 @@ main{
 }
 
 .vertical-holder span {
-  font-size: 10px;
+  font-size: 8px;
   font-weight: 500;
   margin-bottom: 10px;
   letter-spacing: 2px;
-  color: #96AADE;
+  color: #FF5708;
 }
 
 .stripes-bg{
@@ -203,12 +205,36 @@ main{
   background-image: url('/dots.svg');
   background-size: 11px;
   animation: floatAround 3s infinite alternate;
+  opacity: 0.3;
+  filter: hue-rotate(180deg) saturate(5); 
 }
 
 .vertical, .vertical1 {
-  width: 3px;
+  width: 1px;
   height: 40vh;
-  background: linear-gradient(to bottom, #B7A2CE 0%, #A0C2FF 100%);
+  background: linear-gradient(to left, #E78A5F 0%, #FFDAA5 100%);
+}
+
+.copyright{
+  position: fixed;
+  bottom: 100px;
+  left: 60px;
+  font-size: 12px;
+  transform: rotate(-90deg);
+  color: #919795;
+  font-weight: 300;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  letter-spacing: .02em;
+  display: flex;
+  align-items: center;
+  transform-origin: bottom left;
+  gap: 10px;
+}
+
+.copyright span{
+  width: 30px;
+  height: 1px;
+  background-color: #919795;
 }
 
 @keyframes floatAround {

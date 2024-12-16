@@ -41,7 +41,7 @@ onMounted(() => {
         }
     },
     {
-        threshold: 0.15, //value on how much of the element should be visible before the callback is called
+        threshold: 0.05, //value on how much of the element should be visible before the callback is called
     }
     );
     // Observe the element
@@ -58,16 +58,16 @@ onMounted(() => {
     >
         <div class="About-Me">
             <div :class="['label', { active: isAboutMeHead }]">
-                <span :class ="['about-label', { active: isAboutMeHead}]">About Me. <p>#</p></span>
-                <span class="label"></span>
+                <span :class ="['about-label', { active: isAboutMeHead}]">About Me </span>
+                <span class="horiz"></span>
             </div>
                 <div :class="['info', {active: isInfo}]">
                     <span>
-                        Hello! I’m Kentward M. Maratas, and I’m currently studying Information Technology at
-                        the University of San Carlos. I began my development career after several months of
-                        exploring web development. I am currently interested in Full-Stack development and am
-                        forcing myself to like and dive deeper into Data Science to enhance my analytical skills,
-                        and I'm only good in things that interest me.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                        nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </span>
                 </div>
 
@@ -137,9 +137,9 @@ onMounted(() => {
 
     .label span:nth-child(2) {
         margin-top: 1%;
-        width: 35%;
-        height: 4px;
-        background-color: #54c9a2;
+        width: 75%;
+        height: 3px;
+        background-color: #FF5708;
         opacity: 0;
         transform: translateX(500px);
     }
@@ -168,6 +168,13 @@ onMounted(() => {
         animation: fadeInUp 0.5s backwards 0.3s;
     }
 
+    .about-label.active::after{
+        content: ' .';
+        color: #FF5708;
+        margin-left: 5px;
+        font-weight: 800;
+    }
+
     .info, .Tech-Stack{
         opacity: 0;
     }
@@ -184,15 +191,15 @@ onMounted(() => {
     .shadow-line.active{
         width: 53%;
         height: 4px;
-        background: #acdae2;
+        background: #FFDAA5;
         margin-top: 10px;
         opacity: 1;
         animation: fadeInUp 0.5s backwards 0.5s;
     }
 
-    .shadow-line.done{
+    /* .shadow-line.done{
         animation: fadeInUp 1.5s backwards infinite;
-    }
+    } */
 
     
     .shadow-line.active:nth-child(2) {
@@ -238,16 +245,16 @@ onMounted(() => {
     @keyframes slideIn {
         0% {
             transform: translateX(500px);
-            width: 35%;
+            width: 75%;
         }
         20% {
-            width: 30%;
+            width: 50%;
         }
         40% {
-            width: 25%;
+            width: 35%;
         }
         60% {
-            width: 20%;
+            width: 30%;
         }
         100% {
             width: 15%;
@@ -258,6 +265,7 @@ onMounted(() => {
     .info {
         margin-top: 20px;
         line-height: 1.8;
+        text-align: justify;
     }
 
     .info span {
@@ -283,7 +291,7 @@ onMounted(() => {
     .box, .box-shadow {
         width: 54px;
         height: 57px;
-        border: 1px solid #004aac;
+        border: 1px solid #FF5708;
         border-radius: 11px;
         display: flex;
         justify-content: center;

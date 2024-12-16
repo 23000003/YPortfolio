@@ -47,8 +47,8 @@ onMounted(() => {
     >
         <div class="Project-Holder">
             <div :class="['label', { active: isProjectHead }]">
-                <span :class ="['about-label', { active: isProjectHead}]">Projects. 
-                    <p>#</p>
+                <span :class ="['proj-type-label', { active: isProjectHead}]">Projects
+                    <p>.</p>
                     <div class="proj-color-type">
                         <div class="experience-type">
                             <span></span>
@@ -76,21 +76,23 @@ onMounted(() => {
                     </div>
                     <div class="proj-info">
                         <span class="proj-type" :style="{
-                            backgroundColor: proj.type === 1 ? '#D6B3FC' : 
-                                            proj.type === 2 ? '#B4B1FF' : 
-                                            proj.type === 3 ? '#443DAB' : 'transparent'
+                            backgroundColor: proj.type === 1 ? '#eefc72' : 
+                                            proj.type === 2 ? '#c6f2ff' : 
+                                            proj.type === 3 ? '#eefc72' : 'transparent'
                         }">
                         </span>
-                        <span class="proj-name">
-                            {{ proj.name }}
-                        </span>
-                        <span class="horiz"></span>
+                        <div class="proj-name-horiz">
+                            <span class="proj-name">
+                                {{ proj.name }}
+                            </span>
+                            <span class="horiz"></span>
+                        </div>
                         <span class="proj-desc">
                             {{ proj.description }}
                         </span>
                         <div class="proj-link">
                             <div class="pl-sub">
-                                <a :href="proj.link" class="button">
+                                <a :href="proj.link" class="button" target="_blank">
                                     <span class="button-bg"></span>
                                     <span class="button-label">Project Link</span>
                                 </a>
@@ -134,7 +136,7 @@ onMounted(() => {
         flex-direction: column;
     }
 
-    .about-label{
+    .proj-type-label{
         opacity: 0;
         display: flex;
         align-items: center;
@@ -142,9 +144,9 @@ onMounted(() => {
 
     .horizontal{
         width: 0%;
-        height: 2px;
+        height: 1px;
         margin-top: 20px;
-        background-color: #B7A2CE;
+        background: #47280b
     }
 
     .horizontal.active {
@@ -152,18 +154,21 @@ onMounted(() => {
     }
 
     .horiz{
-        width: 15%;
-        height: 4px;
-        background-color: #54c9a2;
+        display: flex;
+        width: 8%;
+        height: 2px;
+        background-color: #FF5708;
+        transition: width 0.5s ease;
     }
 
-    .about-label p{
+    .proj-type-label p{
         margin: 0;
-        margin-left: 10px;
-        color: #94d8c1;
+        margin-left: 4px;
+        color: #FF5708;
+        font-weight: 800;
     }
 
-    .about-label.active{
+    .proj-type-label.active{
         opacity: 1;
         transform: translateY(0);
         animation: fadeInUp 0.5s backwards 0.7s;
@@ -203,17 +208,46 @@ onMounted(() => {
         flex-direction: column;
     }
 
-    .proj-name{
+    .proj-name-horiz {
+        display: inline-flex;
+        position: relative;
+    }
+
+    .proj-name {
         font-size: 36px;
         font-weight: bold;
+        position: relative;
+        z-index: 1;
     }
+
+    .proj-name::after{
+        content: ".";
+        margin-left: 3px;
+        font-weight: 800px;
+        color: #FF5708;
+    }
+
+    .horiz {
+        display: inline-block;
+        width: 5%;
+        height: 2px;
+        background-color: #FF5708;
+        position: absolute;
+        bottom: 0;
+        transition: width 0.5s ease;
+    }
+
+    .proj-info:hover .horiz {
+        width: 20%;
+    }
+
 
     .proj-type{
         width: 12px;
         height: 12px;
         border-radius: 45px;
         background-color: #214192;
-        border: 1px solid #001465;
+        border: 1px solid #47280B;
         position: absolute;
         margin-top: 15px;
         margin-left: -24px;
@@ -231,7 +265,7 @@ onMounted(() => {
         display: inline-block;
         position: relative;
         padding: 10px 30px;
-        border: 2px solid #214192;
+        border: 2px solid #47280B;
         cursor: pointer;
     }
 
@@ -243,9 +277,10 @@ onMounted(() => {
         bottom: -10px;
         background-image: url('/stripes.svg');
         background-size: 11px;
-        opacity: 0.6;
+        opacity: 0.3;
         z-index: -1;
         transition: all 0.6s ease;
+        filter: hue-rotate(180deg) saturate(5); 
     }
     
     .button:hover .button-bg {
@@ -266,19 +301,11 @@ onMounted(() => {
     }
 
     .button:hover{
-        border: 2px solid #bc8fec;
+        border: 2px solid #FF5708;
     }
 
     .button:hover .button-label{
-        color: #bc8fec;
-    }
-
-    .proj-name p{
-        font-size: 40px;
-        margin-left: 5px;
-        color:#04cf8c;
-        position: absolute;
-        margin: auto;
+        color: #FF5708;
     }
 
     .pl-sub{
@@ -301,6 +328,8 @@ onMounted(() => {
     .proj-desc{
         margin-top: 20px;
         font-weight: 400;
+        line-height: 1.8;
+        text-align: justify;
     }
 
     .proj-image img{
@@ -319,12 +348,16 @@ onMounted(() => {
     .proj-color-type{
         width: 381px;
         height: 43px;
-        border: 1px solid #443DAB;
+        border: 1px solid #47280B;
         border-radius: 46px;
         margin-left: 20px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+    }
+
+    .proj-color-type span{
+        color: #47280B;
     }
 
     .school-type, .side-type, .experience-type{
@@ -343,19 +376,19 @@ onMounted(() => {
         height: 12px;
         border-radius: 45px;
         background-color: #214192;
-        border: 1px solid #001465;
+        border: 1px solid #47280B;
     }
 
     .experience-type span:first-child{
-        background-color: #443DAB;
+        background-color: hwb(125 41% 8%)
     }
 
     .school-type span:first-child{
-        background-color: #D6B3FC;
+        background-color: #eefc72;
     }
 
     .side-type span:first-child{
-        background-color: #B4B1FF;
+        background-color: #c6f2ff;
     }
 
     @keyframes fadeInUp {

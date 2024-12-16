@@ -31,14 +31,30 @@ onMounted(() => {
     <div class="home-container">
         <div class="intro">
             <div class="intro-label">
-                <span class="shadow-text">"Knowledge has no finish line;"</span>
-                <span class="shadow-text">"Knowledge has no <br/>finish line;"</span>
-                <span class="sub-text">I'm Kentward M. Maratas, A passionate full-stack developer.</span>
+                <div class="intro-main-text">
+                    <span class="shadow-text">Hello There, my<br/>name is <b>Kentward</b></span>
+                    <span class="shadow-text">Hello There, my<br/>name is Kentward</span>
+                    <span class="sub-text">A passionate full-stack developer.</span>
+                </div>
                 <div class="contact-info">
-                    <button>Download Resume</button>
+                    <button>View Resume</button>
                     <img src="/Rect1.png" alt="Pipe" class="pipe">
-                    <img class="social-icons" src="https://img.icons8.com/?size=100&id=52539&format=png&color=000000" alt="github">
-                    <img class="social-icons" src="https://img.icons8.com/?size=100&id=44019&format=png&color=000000" alt="linkedin">
+                    <button>Contact Me</button>
+                    <!-- <a href="https://github.com/23000003" target="_blank">
+                        <img 
+                            class="social-icons" 
+                            src="https://img.icons8.com/?size=100&id=RHLuYrY4GjUv&format=png&color=384C9C" 
+                            alt="github"
+                        />
+                    </a>
+                    <a href="https://www.linkedin.com/in/kentward-maratas-587516302/" target="_blank">
+                        <img 
+                            class="social-icons" 
+                            src="https://img.icons8.com/?size=100&id=8808&format=png&color=384C9C" 
+                            alt="linkedin"
+                            style="width: 28px; height: 28px;"
+                        />
+                    </a> -->
                 </div>
             </div>  
         </div>
@@ -54,7 +70,7 @@ onMounted(() => {
         <img src="/BgJapanese.png" alt=""/>
     </div>
     <div :class="['vertical-container', { 'active': isVerticalActive }]">
-        <div class="vertical-holder">
+        <div class="vertical-holder remove">
             <span style="margin-top: 70px;">SCROLL</span>
             <div class="vertical"></div>
         </div>
@@ -70,13 +86,6 @@ onMounted(() => {
 
 <style scoped>
 
-    
-    .intro {
-        display: flex;
-        flex-direction: row;
-        width: 50%;
-    }
-
     .home-container {
         display: flex;
         flex-direction: row;
@@ -86,9 +95,9 @@ onMounted(() => {
     }
 
     .bg-japan img {
-        position: fixed;
+        position: absolute;
         bottom: 0;
-        right: 50px;
+        right: -15%;
         animation: fadeInUp 0.5s backwards 1.5s;
         cursor: pointer;
         transition: transform 0.3s ease-in-out;
@@ -99,10 +108,17 @@ onMounted(() => {
         animation-duration: 200ms;
     }
 
+    .intro-main-text{
+        display: flex; 
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .shadow-text {
-        font-size: 3.5em;
-        font-weight: bold;
+        font-size: 4.0em;
         animation: fadeInUp 0.5s backwards;
+        font-weight: 400;
+        /* color: #0F1B61; */
     }
 
     .sub-text {
@@ -115,11 +131,16 @@ onMounted(() => {
         margin-left: -15px;
         margin-top: 12px;
         z-index: -1;
-        color: #d0aadb34;
+        color: #f5b16318;
     }
 
-    .intro-label span:nth-child(2) {
-        letter-spacing: 1px;
+    .shadow-text::after{
+        content: ".";
+    }
+
+    .shadow-text:nth-child(1)::after{
+        font-weight: bold;
+        color: #FF5708;
     }
 
     .intro-label {
@@ -136,6 +157,12 @@ onMounted(() => {
         align-items: center;
     }
 
+    .intro {
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+    }
+
     .logo {
         display: none;
     }
@@ -144,21 +171,21 @@ onMounted(() => {
         display: flex;
         align-items: center;
         max-width: 100%;
-        width: 50%;
+        width: 40%;
         z-index: 1;
         flex-direction: column;
     }
 
     .square, .square1 {
-        width: 169px;
-        height: 142px;
-        background: linear-gradient(to left, #B7A2CE 0%, #A0C2FF 100%);
+        width: 219px;
+        height: 182px;
+        background: linear-gradient(to left, #E78A5F 0%, #FFDAA5 100%);
     }
 
     .shadow-square, .shadow-square1 {
-        width: 169px;
-        height: 142px;
-        background: linear-gradient(to left, #b7a2ce31 0%, #a0c1ff48 100%);
+        width: 219px;
+        height: 182px;
+        background: linear-gradient(to left, #e78a5f41 0%, #ffd9a54f 100%);
         position: absolute;
         z-index: -1;
         margin-right: 230px;

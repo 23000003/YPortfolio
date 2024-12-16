@@ -1,0 +1,132 @@
+@media screen and (max-width: 1670px) {
+    .proj-image{
+        margin-right: 40px;
+    }
+}
+
+@media screen and (max-width: 1625px) {   
+    .proj-image img{
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .proj-image img{
+        width: 400px;
+    }
+
+    .proj-name{
+        font-size: 30px !important;
+    }
+
+    .proj-desc{
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width: 1455px) {
+    .shadow-text{
+        font-size: 3.5em !important;
+    }
+
+    .shadow-square, .shadow-square1,
+    .square, .square1{
+        width: 179px !important;
+        height: 152px !important;
+    }
+
+    .square, .shadow-square {
+        margin-left: -180px !important;
+    }
+
+    .square1, .shadow-square1 {
+        margin-left: 100px !important;
+        margin-top: -30px !important;
+    }
+
+    .shadow-square1 {
+        margin-top: 7px !important;
+    }
+
+    .shadow-square {
+        margin-left: 370px !important;
+        margin-top: 100px !important;
+    }
+}
+
+@media screen and (max-width: 1255px) {
+    .shadow-text{
+        font-size: 3em !important;
+    }
+}
+
+/* Change position */
+@media screen and (max-width: 1120px) {
+    .shadow-text{
+        font-size: 3em !important;
+    }
+
+    .home-container{
+        flex-direction: column !important;
+        position: relative;
+        top: 150px;
+        margin-bottom: 100px;
+    }
+
+    .intro {
+        order: 2;
+        text-align: center;
+        margin-top: 70px;
+        justify-content: center;
+        width: 100% !important;
+    }
+
+    .contact-info {
+        justify-content: center;
+    }
+
+    .logo {
+        order: 1;  /* Make sure logo comes first */
+    }
+}
+
+@media screen and (max-width: 660px) {
+    
+    .shadow-text{
+        font-size: 2em !important;
+    }
+
+    .remove{
+        display: none;
+    }
+
+    .sub-text{
+        font-size: 14px !important;
+    }
+
+    .shadow-square, .shadow-square1,
+    .square, .square1{
+        width: 149px !important;
+        height: 122px !important;
+    }
+
+    .square, .shadow-square {
+        margin-left: -140px !important;
+    }
+
+    .square1, .shadow-square1 {
+        margin-left: 100px !important;
+        margin-top: -30px !important;
+    }
+
+    .shadow-square1 {
+        margin-top: 7px !important;
+        margin-left: 140px !important;
+    }
+
+    .shadow-square {
+        margin-left: 370px !important;
+        margin-top: 100px !important;
+    }
+}

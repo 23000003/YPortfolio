@@ -29,6 +29,10 @@ const { site, frontmatter } = useData()
     </div>
     <main>
       <Content />
+      <small class="copyright">
+        <span></span>
+        2024 © Kentward M. Maratas
+      </small>
     </main>
   </div>
 </template>
