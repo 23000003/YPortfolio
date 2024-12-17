@@ -132,11 +132,11 @@ main{
 }
 
 .navlinks span:nth-child(2){
-  background-color: #EEF5FB;
+  background-color: #cefcd4;
 }
 
 .navlinks span:nth-child(3){
-  background-color: #FFF7F7;
+  background-color: #EEF5FB;
 }
 
 .social-icons{

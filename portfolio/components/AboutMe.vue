@@ -79,6 +79,7 @@ onMounted(() => {
                         <div class="box">
                             <img :src="tech.icon" :alt="tech.name" class="icon" />
                         </div>
+                        <div class="icon-label">{{ tech.name }}</div>
                     </div>
                     </div>
                 <div class="tech-wrapper">
@@ -87,6 +88,7 @@ onMounted(() => {
                         <div class="box">
                             <img :src="tech.icon" :alt="tech.name" class="icon" />
                         </div>
+                        <div class="icon-label">{{ tech.name }}</div>
                     </div>
                 </div>
             </div>
@@ -116,6 +118,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
     .About-me-container {
         display: flex;
         flex-direction: row;
@@ -297,6 +300,23 @@ onMounted(() => {
         justify-content: center;
         align-items: center;
         background-color: rgb(255, 255, 255);
+        cursor: pointer;
+    }
+
+    .holder:hover .icon-label{
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .icon-label{
+        opacity: 0;
+        position: relative;
+        font-size: 0.8em;
+        text-align: center;
+        margin-top: 10px;
+        transition: opacity 0.3s ease, transform 0.3s ease; 
+        transform: scale(0.5);
+        color: #47280B;
     }
 
     .box-shadow {
@@ -326,11 +346,13 @@ onMounted(() => {
 
     .holder {
         margin-top: 30px;
+        width: 65px;
     }
 
     .icon {
         width: 37px;
         height: 37px;
+        filter: saturate(10.5);
     }
 
     @keyframes loopSlider {

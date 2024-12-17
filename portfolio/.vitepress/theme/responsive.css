@@ -10,21 +10,6 @@
     }
 }
 
-@media screen and (max-width: 1400px) {
-    .proj-image img{
-        width: 400px;
-    }
-
-    .proj-name{
-        font-size: 30px !important;
-    }
-
-    .proj-desc{
-        font-size: 15px;
-    }
-}
-
-
 @media screen and (max-width: 1455px) {
     .shadow-text{
         font-size: 3.5em !important;
@@ -53,11 +38,101 @@
         margin-left: 370px !important;
         margin-top: 100px !important;
     }
+
+    .Profile-Image img{
+        width: 300px !important;
+    }
+
+    .label{
+        font-size: 3em !important;
+    }
+
+    .info span{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .proj-image img{
+        width: 400px;
+    }
+
+    .proj-name{
+        font-size: 30px !important;
+    }
+
+    .proj-desc{
+        font-size: 15px;
+    }
+
+    .proj-info{
+        width: 60% !important;
+    }
+
+    .proj-image{
+        width: 40% !important;
+    }
+
+    .button{
+        padding: 7px 25px !important;
+        font-size: 14px;
+    }
+
+    .built-with{
+        font-size: 14px !important;
+    }
+
+    .proj-link{
+        height: 70px !important;
+    }
+
 }
 
 @media screen and (max-width: 1255px) {
     .shadow-text{
         font-size: 3em !important;
+    }
+
+    .info span{
+        font-size: 13px;
+    }
+
+    .shadow-line{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1340px) {
+    .proj-image img{
+        width: 300px;
+    }
+
+    .proj-name{
+        font-size: 25px !important;
+    }
+
+    .proj-desc{
+        font-size: 12px;
+    }
+
+    .button{
+        padding: 5px 20px !important;
+        font-size: 12px;
+    }
+
+    .built-with{
+        font-size: 10px !important;
+    }
+
+    .proj-link{
+        height: 50px !important;
+    }
+
+    .proj-rem{
+        width: 8px !important;
+        height: 8px !important;
+        margin-top: 10px !important;
+        margin-left: -16px !important;
     }
 }
 
@@ -89,16 +164,85 @@
     .logo {
         order: 1;  /* Make sure logo comes first */
     }
+
+    .remove{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .Profile-Image{
+        display: none !important;
+    }
+
+    .About-Me{
+        width: 100% !important;
+    }
+
+    .info span{
+        font-size: 16px;
+    }
+
+    .proj-image{
+        display: none !important;
+    }
+
+    .view-image{
+        display: flex !important;
+    }
+
+    .proj-info{
+        width: 100% !important;
+    }
+
+    .proj-name{
+        font-size: 30px !important;
+    }
+
+    .proj-desc{
+        font-size: 16px;
+    }
+
+    .button{
+        padding: 10px 30px !important;
+        font-size: 16px;
+    }
+
+    .built-with{
+        font-size: 14px !important;
+    }
+
+    .proj-link{
+        height: 100px !important;
+    }
+
+    .proj-info:hover .horiz {
+        width: 15% !important;
+    }
+
+    .proj-type{
+        width: 12px !important;
+        height: 12px !important;
+        margin-top: 12px !important;
+        margin-left: -20px !important;
+    }
+}
+
+@media screen and (max-width: 840px){
+
+    .proj-color-type{
+        display: none !important;
+    }
+
+    .proj-rem{
+        display: none !important;
+    }
 }
 
 @media screen and (max-width: 660px) {
     
     .shadow-text{
         font-size: 2em !important;
-    }
-
-    .remove{
-        display: none;
     }
 
     .sub-text{

@@ -75,7 +75,7 @@ onMounted(() => {
                         <img :src="proj['image-main']" :alt="proj.name" class="img-main"/>
                     </div>
                     <div class="proj-info">
-                        <span class="proj-type" :style="{
+                        <span class="proj-type proj-rem" :style="{
                             backgroundColor: proj.type === 1 ? '#eefc72' : 
                                             proj.type === 2 ? '#c6f2ff' : 
                                             proj.type === 3 ? '#eefc72' : 'transparent'
@@ -85,6 +85,10 @@ onMounted(() => {
                             <span class="proj-name">
                                 {{ proj.name }}
                             </span>
+                            <div class="view-image">
+                                <img src="https://img.icons8.com/?size=100&id=30M9wv1iFkcH&format=png&color=FF5708" alt="">
+                                <span>View Image</span>
+                            </div>
                             <span class="horiz"></span>
                         </div>
                         <span class="proj-desc">
@@ -153,13 +157,13 @@ onMounted(() => {
         animation: slideHorizontal 0.2s ease-out forwards 0.3s;
     }
 
-    .horiz{
+    /* .horiz{
         display: flex;
         width: 8%;
         height: 2px;
         background-color: #FF5708;
         transition: width 0.5s ease;
-    }
+    } */
 
     .proj-type-label p{
         margin: 0;
@@ -191,7 +195,7 @@ onMounted(() => {
     .proj-image{
         width: 50%;
         display: flex;
-        align-items: end;
+        align-items: center;
     }
 
     .img-sub{
@@ -241,6 +245,31 @@ onMounted(() => {
         width: 20%;
     }
 
+    .view-image{
+        display: none;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .view-image img{
+        width: 30px;
+        margin: 0px 8px 0px 14px;
+        transition: all 0.6s ease;
+    }
+
+    .view-image:hover img{
+        opacity: .6;
+    }
+
+    .view-image span{
+        font-size: 12px;
+        color: #FF5708;
+        /* E78A5F;*/
+    }
+
+    .view-image:hover span{
+        color: #E78A5F;
+    }
 
     .proj-type{
         width: 12px;
@@ -250,13 +279,13 @@ onMounted(() => {
         border: 1px solid #47280B;
         position: absolute;
         margin-top: 15px;
-        margin-left: -24px;
+        margin-left: -20px;
     }
 
     .proj-link {
         display: flex;
         flex-direction: row;
-        height: 100%;
+        height: 100px;
         align-items: end;
     }
 
