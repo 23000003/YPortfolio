@@ -63,11 +63,12 @@ onMounted(() => {
             </div>
                 <div :class="['info', {active: isInfo}]">
                     <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                        nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Hello! I'm Kentward M. Maratas, an Information Technology student at the University of San Carlos. 
+                        Currently, I'm exploring the field of web development, where I am refining my skills in both frontend 
+                        with React, backend with ASP.NET and CI/CD pipelines. 
+                        
+                        I’m passionate about things that captures my interest, especially in creating complex systems and 
+                        applications that boost my technical expertise.
                     </span>
                 </div>
 
@@ -102,17 +103,14 @@ onMounted(() => {
             <div :class="['shadow-line', { active: isProfile, done: isShadowLine}]" style="margin-left: 120px;"></div>
         </div>
     </div>
-    <div :class="['vertical-container', { active: isVerticalScroll }]" style="margin-top: 40px;">
-        <div class="vertical-holder" style="visibility: hidden;">
-            <span style="margin-top: 70px;">SCROLL</span>
+    <div :class="['vertical-container', { active: isVerticalScroll }]" style="margin-top: 70px;">
+        <div class="vertical-holder remove">
+            <span >SCROLL</span>
             <div class="vertical"></div>
         </div>
         <div class="vertical-holder">
             <span>SCROLL</span>
             <div class="vertical1"></div>
-        </div>
-        <div class="stripes-bg">
-            <div></div>
         </div>
     </div>
 </template>
@@ -122,8 +120,7 @@ onMounted(() => {
     .About-me-container {
         display: flex;
         flex-direction: row;
-        width: 100%;
-        margin-top: 150px;
+        margin-top: 100px;
     }
 
     .About-Me {
@@ -234,37 +231,6 @@ onMounted(() => {
         animation: fadeInUp 0.5s backwards 0.5s;
     }
 
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes slideIn {
-        0% {
-            transform: translateX(500px);
-            width: 75%;
-        }
-        20% {
-            width: 50%;
-        }
-        40% {
-            width: 35%;
-        }
-        60% {
-            width: 30%;
-        }
-        100% {
-            width: 15%;
-            transform: translateX(0);
-        }
-    }
-
     .info {
         margin-top: 20px;
         line-height: 1.8;
@@ -273,6 +239,7 @@ onMounted(() => {
 
     .info span {
         font-weight: 400;
+        font-size: 18px;
     }
 
 
@@ -354,15 +321,5 @@ onMounted(() => {
         height: 37px;
         filter: saturate(10.5);
     }
-
-    @keyframes loopSlider {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
-    }
-
 
 </style>

@@ -26,7 +26,7 @@ const projects = [
         "link": "https://github.com/23000003/BearEye",
         "image-main": "/BearEye.png",
         "image-sub": "/BookTrackSub.png",
-        "built-with": "Asp.Net, ReactTS, PostgreSql, Python"
+        "built-with": "Asp.Net, ReactTS, PGSql, Python"
     },
     
 

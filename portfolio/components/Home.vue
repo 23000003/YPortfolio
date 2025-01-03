@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import Contacts from './Contacts.vue';
 
 const isVerticalActive = ref(false);
 const isLogoActive = ref(false);
 const isLogoActive1 = ref(false);
+const isClicked = ref(false);
 
 onMounted(() => {
     
@@ -25,6 +27,12 @@ onMounted(() => {
     }, 3000);
 
 });
+
+function Click(){
+    isClicked.value = !isClicked.value;
+    console.log(isClicked.value);
+}
+
 </script>
 
 <template>
@@ -34,12 +42,19 @@ onMounted(() => {
                 <div class="intro-main-text">
                     <span class="shadow-text">Hello There, my<br/>name is <b>Kentward</b></span>
                     <span class="shadow-text">Hello There, my<br/>name is Kentward</span>
-                    <span class="sub-text">A passionate full-stack developer.</span>
+                    <span class="sub-text">A passionate web developer.</span>
                 </div>
                 <div class="contact-info">
-                    <button>View Resume</button>
+                    <a href="" class="buttonH" target="_blank">
+                        <span class="buttonH-bg"></span>
+                        <span class="buttonH-label">My Resume</span>
+                    </a>
                     <img src="/Rect1.png" alt="Pipe" class="pipe">
-                    <button>Contact Me</button>
+                    <div class="buttonH" target="_blank" @click="Click">
+                        <span class="buttonH-bg"></span>
+                        <span class="buttonH-label">Contacts</span>
+                    </div>
+                    <!-- <img src="https://img.icons8.com/?size=100&id=8808&format=png&color=FF5708" alt="linkedin" class="icon"> -->
                     <!-- <a href="https://github.com/23000003" target="_blank">
                         <img 
                             class="social-icons" 
@@ -66,22 +81,19 @@ onMounted(() => {
             <div :class="['shadow-square1', { 'active': isLogoActive1 }]"></div>
         </div>
     </div>
-    <div class="bg-japan">
-        <img src="/BgJapanese.png" alt=""/>
-    </div>
-    <div :class="['vertical-container', { 'active': isVerticalActive }]">
+    <div :class="['vertical-container mt', { 'active': isVerticalActive }]">
         <div class="vertical-holder remove">
-            <span style="margin-top: 70px;">SCROLL</span>
+            <span>SCROLL</span>
             <div class="vertical"></div>
         </div>
         <div class="vertical-holder">
             <span>SCROLL</span>
             <div class="vertical1"></div>
         </div>
-        <div class="stripes-bg">
-            <div></div>
-        </div>
     </div>
+
+    <Contacts :Click ="Click" :isClick = "isClicked"/>
+
 </template>
 
 <style scoped>
@@ -91,21 +103,8 @@ onMounted(() => {
         flex-direction: row;
         align-items: center;
         width: 100%;
-        height: 80svh;
-    }
-
-    .bg-japan img {
-        position: absolute;
-        bottom: 0;
-        right: -15%;
-        animation: fadeInUp 0.5s backwards 1.5s;
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .bg-japan img:hover {
-        transform: scale(1.05);
-        animation-duration: 200ms;
+        height: 60svh;
+        padding-top: 80px;
     }
 
     .intro-main-text{
@@ -176,6 +175,21 @@ onMounted(() => {
         flex-direction: column;
     }
 
+    .vertical-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 75px;
+        opacity: 0;
+    }
+
+    .vertical-container.active {
+        opacity: 1;
+        transform: translateY(0);
+        animation: popUp 0.5s backwards 0.5s;
+        width: 100%;
+    }
+
     .square, .square1 {
         width: 219px;
         height: 182px;
@@ -233,6 +247,40 @@ onMounted(() => {
         animation: floatAround1 2s infinite alternate;
     }
 
+    .buttonH {
+        display: inline-block;
+        position: relative;
+        padding: 5px 15px;
+        border: 1px solid #47280B;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+    .buttonH-bg {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-image: url('/stripes.svg');
+        background-size: 11px;
+        opacity: 0.3;
+        z-index: -1;
+        transition: all 0.6s ease;
+        filter: hue-rotate(180deg) saturate(5); 
+    }
+    
+    .buttonH .buttonH-bg {
+        transition: all 0.6s ease;
+    }
+
+    .buttonH:hover{
+        border: 1px solid #FF5708;
+    }
+
+    .buttonH:hover .buttonH-label{
+        color: #FF5708;
+    }
 
     @keyframes fadeInUp {
         from {

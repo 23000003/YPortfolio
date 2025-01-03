@@ -109,16 +109,6 @@ onMounted(() => {
                 </div>
                 <div :class="['horizontal', { active: true }]"/>
             </div>
-
-        </div>
-    </div>
-    <div :class="['vertical-container', { active: isVerticalScroll }]" style="margin-top: 40px;">
-        <div class="vertical-holder">
-            <span style="margin-top: 70px;">SCROLL</span>
-            <div class="vertical"></div>
-        </div>
-        <div class="stripes-bg">
-            <div></div>
         </div>
     </div>
 </template>
@@ -127,6 +117,7 @@ onMounted(() => {
     .project-container {
         display: flex;
         flex-direction: row;
+        margin-top: 100px;
     }
 
     .Project-Holder {
@@ -195,7 +186,7 @@ onMounted(() => {
     .proj-image{
         width: 50%;
         display: flex;
-        align-items: center;
+        align-items: start;
     }
 
     .img-sub{
@@ -358,6 +349,7 @@ onMounted(() => {
         margin-top: 20px;
         font-weight: 400;
         line-height: 1.8;
+        font-size: 18px;
         text-align: justify;
     }
 
@@ -420,37 +412,6 @@ onMounted(() => {
         background-color: #c6f2ff;
     }
 
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes slideIn {
-        0% {
-            transform: translateX(500px);
-            width: 35%;
-        }
-        20% {
-            width: 30%;
-        }
-        40% {
-            width: 25%;
-        }
-        60% {
-            width: 20%;
-        }
-        100% {
-            width: 15%;
-            transform: translateX(0);
-        }
-    }
-
     @keyframes slideHorizontal {
         0% {
             width: 0%;
@@ -466,15 +427,6 @@ onMounted(() => {
         }
         100% {
             width: 100%;
-        }
-    }
-
-    @keyframes loopSlider {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-100%);
         }
     }
 

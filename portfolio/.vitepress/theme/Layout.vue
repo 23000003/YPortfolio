@@ -27,11 +27,11 @@ const { site, frontmatter } = useData()
         </div>
       </div>
     </div>
-    <main>
+    <main style="min-height: 100vh;">
       <Content />
       <small class="copyright">
         <span></span>
-        2024 © Kentward M. Maratas
+        2024 &copy; Kentward M. Maratas
       </small>
     </main>
   </div>

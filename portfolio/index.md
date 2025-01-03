@@ -7,7 +7,6 @@
     import Home from './components/Home.vue';
     import AboutMe from './components/AboutMe.vue';
     import Projects from './components/Projects.vue';
-    import Contacts from './components/Contacts.vue';
     
     // import CurrentColorClassModule from './components/util/CurrentColorClass.ts'
     // const CurrentColorClass = new CurrentColorClassModule(0);
@@ -33,7 +32,6 @@
     <Home />
     <AboutMe />
     <Projects />
-    <Contacts />
 </div>
 
 
