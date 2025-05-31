@@ -63,12 +63,10 @@ onMounted(() => {
             </div>
                 <div :class="['info', {active: isInfo}]">
                     <span>
-                        Hello! I'm Kentward M. Maratas, an Information Technology student at the University of San Carlos. 
-                        Currently, I'm exploring the field of web development, where I am refining my skills in both frontend 
-                        with React, backend with ASP.NET and CI/CD pipelines. 
-                        
-                        I’m passionate about things that captures my interest, especially in creating complex systems and 
-                        applications that boost my technical expertise.
+                        A passionate software engineer dedicated to building efficient and software applications,
+                        with a focus on creating scalable and maintainable architectures. Adaptable and resilient, with the ability to overcome
+                        challenges through continuous learning and improvement. Currently exploring and interested with software architecture designs
+                        that aligns with business goals and drive success.
                     </span>
                 </div>
 

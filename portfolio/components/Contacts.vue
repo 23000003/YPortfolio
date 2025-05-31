@@ -1,7 +1,10 @@
 <script setup lang="ts" type="module">
 import { ref, onMounted } from 'vue';
 
-const props = defineProps({Click : Function, isClick: Boolean});
+const props = defineProps<{
+  Click: (event: MouseEvent) => void;
+  isClick: boolean;
+}>();
 const contactRef = ref(null);
 const isVisible = ref(false);
 

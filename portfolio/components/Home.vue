@@ -40,9 +40,9 @@ function Click(){
         <div class="intro">
             <div class="intro-label">
                 <div class="intro-main-text">
-                    <span class="shadow-text">Hello There, my<br/>name is <b>Kentward</b></span>
-                    <span class="shadow-text">Hello There, my<br/>name is Kentward</span>
-                    <span class="sub-text">A passionate web developer.</span>
+                    <span class="shadow-text">Hello there, my<br/>name is <b>Kentward</b></span>
+                    <span class="shadow-text">Hello there, my<br/>name is Kentward</span>
+                    <span class="sub-text">A passionate software engineer.</span>
                 </div>
                 <div class="contact-info">
                     <a href="" class="buttonH" target="_blank">

@@ -21,9 +21,10 @@
 
 
     onMounted(() => {
-        setTimeout(() => {
-            showLandingAnim.value = false;
-        }, 1500);
+        window.location.replace("https://kentward.dcism.org/");
+        // setTimeout(() => {
+        //     showLandingAnim.value = false;
+        // }, 1500);
     });
 </script>
 
